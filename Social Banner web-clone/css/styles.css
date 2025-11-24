@@ -1,0 +1,143 @@
+/* Custom Font and Body Styling */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f8f9fa;
+}
+input:focus {
+    box-shadow: none !important;
+}
+
+/* Index page Beautification */
+.bg-image {
+    background-color: #0d1117;
+    background-image: url(../images/stunning-red-and-blue-smoke.jpg);
+    background-size: cover;
+    background-position: center;
+    padding: 40px;
+    margin: 25px;
+    border-radius: 15px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.form-control-custom, .form-select-custom {
+    background-color: rgba(255, 255, 255, 0.9);
+    border: none;
+    border-radius: 8px;
+    padding: 1rem 1.25rem;
+    color: #343a40;
+    transition: all 0.3s ease;
+}
+.form-control-custom:focus, .form-select-custom:focus {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+.banner-card {
+    aspect-ratio: 3 / 1;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+}
+.banner-card:hover {
+    transform: translateY(-5px);
+}
+.banner-overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 10px 20px;
+    color: white;
+    text-align: right;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0) 100%);
+}
+.banner-name {
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1.1;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
+}
+.banner-email {
+    font-size: 0.9rem;
+    color: #ccc;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
+}
+.download-icon {
+    position: absolute;
+    font-weight: 400;
+    top: 10px;
+    right: 10px;
+    color: white;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+    border-radius: 50%;
+    padding: 5px;
+    opacity: 0.8;
+    transition: opacity 0.2s;
+}
+.download-icon:hover {
+    opacity: 1;
+}
+.input-group {
+    border-radius: 8px;
+    overflow: hidden;
+}
+.input-group span {
+    padding: 6px 20px;
+    display: flex;
+    align-items: center;
+}
+
+/* -- Static Web-Pages Beautification -- */
+.nav-link-custom {
+    color: #fff !important;
+    padding: 0 10px;
+    transition: color 0.2s;
+}
+.nav-link-custom:hover {
+    color: #fff !important;
+}
+.nav-link-custom:last-child {
+    border-right: none;
+}
+.policy-card {
+    border-radius: 12px;
+    padding: 30px;
+    line-height: 1.8;
+}
+.policy-card h2 {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #343a40;
+    margin-top: 25px;
+    margin-bottom: 15px;
+}
+.policy-card p, .policy-card li {
+    font-size: 1rem;
+    color: #495057;
+    margin-bottom: 1rem;
+}
+.policy-card ul {
+    padding-left: 20px;
+}
+.nav-link-custom.active {
+    color: #fff !important;
+    font-weight: bold;
+}
+
+
+/* -- Media Query For Responsive Beautification -- */
+@media screen and (max-width: 767px) {
+    .bg-image {
+        padding: 40px 20px;
+    }
+}
+@media screen and (max-width: 545px) {
+    .bg-image {
+        padding: 20px;
+    }
+    .lead {
+        font-size: 16px;
+    }
+}

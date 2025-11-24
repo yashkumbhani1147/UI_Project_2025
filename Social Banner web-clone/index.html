@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Banner Gallery</title>
+    <!-- Bootstrap CSS CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Custom Style Sheet -->
+    <link rel="stylesheet" href="./css/styles.css">
+</head>
+<body class="bg-light">
+
+    <section class="bg-image mb-5">
+        <div class="container text-center text-white">
+            <h1 class="display-5 fw-bold mb-3">Find images and Make your Banner</h1>
+            <p class="lead mb-3">
+                Please enter your name and job title to customize your banner, and then you can proceed to download it.
+            </p>
+            <nav class="mb-5 d-flex flex-wrap justify-content-center">
+                <a href="about-us.html" class="nav-link-custom text-decoration-none">About us</a> |
+                <a href="privacy-policy.html" class="nav-link-custom text-decoration-none">Privacy Policy</a> |
+                <a href="terms-and-condition.html" class="nav-link-custom text-decoration-none">Term & Condition</a> |
+                <a href="disclaimer.html" class="nav-link-custom text-decoration-none">Disclaimer</a>
+            </nav>
+
+            <!-- Input Fields -->
+            <div class="row g-3 mx-auto" style="max-width: 1000px;">
+                <!-- Search and Category -->
+                <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                    <div class="input-group">
+                        <input type="text" id="searchInput" class="form-control form-control-custom" placeholder="Search here" value="Marceline Avila" oninput="updateBannerPreviews()">
+                        <span class="input-group-text input-group-text-right bg-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search text-secondary" viewBox="0 0 16 16">
+                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                    <select id="selectCategory" class="form-select form-select-custom">
+                        <option selected>Select Category</option>
+                        <option value="1">Technology</option>
+                        <option value="2">Finance</option>
+                        <option value="3">Marketing</option>
+                    </select>
+                </div>
+
+                <!-- Fullname, Email, Designation -->
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <input type="text" id="fullNameInput" class="form-control form-control-custom" placeholder="Fullname" value="Marceline Avila" oninput="updateBannerPreviews()">
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <div class="input-group">
+                        <input type="email" id="emailInput" class="form-control form-control-custom" placeholder="Email" value="marceline@gmail.com" oninput="updateBannerPreviews()">
+                        <span class="input-group-text input-group-text-right bg-white">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope text-secondary" viewBox="0 0 16 16">
+                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 10.375v-6.992Zm-.485 5.5l-4.708-2.825L1 9.383V4.603l-.01.005L15 4.603v6.777Zm-14.515 0V7.479l7 4.2 7-4.2v4.734a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
+                            </svg>
+                        </span>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                    <input type="text" id="designationInput" class="form-control form-control-custom" placeholder="Designation">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Banner Gallery Section -->
+    <div class="container my-5">
+        <div class="row g-4" id="bannerGallery">
+            <!-- Banner Cards will be injected here by JavaScript -->
+        </div>
+    </div>
+
+    <!-- Bootstrap JS Bundle -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+    <script>
+        const bannerImages = [
+            'https://placehold.co/1500x500/0b3d91/ffffff?',
+            'https://placehold.co/1500x500/8d2e2e/ffffff?',
+            'https://placehold.co/1500x500/222222/ffffff?',
+            'https://placehold.co/1500x500/3d5c5c/ffffff?',
+            'https://placehold.co/1500x500/4a7a51/ffffff?',
+            'https://placehold.co/1500x500/7a5223/ffffff?',
+            'https://placehold.co/1500x500/0d47a1/ffffff?',
+            'https://placehold.co/1500x500/5b8f8f/ffffff?',
+            'https://placehold.co/1500x500/333333/ffffff?',
+            'https://placehold.co/1500x500/795548/ffffff?',
+            'https://placehold.co/1500x500/9e9d24/ffffff?',
+            'https://placehold.co/1500x500/444444/ffffff?',
+            'https://placehold.co/1500x500/555555/ffffff?',
+            'https://placehold.co/1500x500/ffd700/000000?',
+        ];
+
+        /* -- Creates the HTML structure for a single banner card. -- */
+        function createBannerCard(imageUrl, name, email) {
+            return `
+                <div class="col-12 col-md-6">
+                    <div class="banner-card" style="background-image: url('${imageUrl}');">
+                        <!-- Download Icon (Using a Bootstrap Icon SVG for simplicity) -->
+                        <div class="download-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
+                                <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
+                                <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V3.5a.5.5 0 0 0-1 0v6.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
+                            </svg>
+                        </div>
+                        <div class="banner-overlay">
+                            <p class="banner-name">${name}</p>
+                            <p class="banner-email">${email}</p>
+                        </div>
+                    </div>
+                </div>
+            `;
+        }
+
+        /* -- Updates all banner previews in the gallery dynamically based on input values. -- */
+        function updateBannerPreviews() {
+            const fullName = document.getElementById('fullNameInput').value || 'Fullname Placeholder';
+            const email = document.getElementById('emailInput').value || 'email@example.com';
+            const gallery = document.getElementById('bannerGallery');
+
+            let htmlContent = '';
+            bannerImages.forEach(url => {
+                htmlContent += createBannerCard(url, fullName, email);
+            });
+
+            // -- Set the new content, refreshing all previews
+            gallery.innerHTML = htmlContent;
+        }
+
+        // -- Initialize the gallery when the page loads
+        window.onload = function() {
+            // -- Set initial dummy values for a clean start that matches the image
+            document.getElementById('fullNameInput').value = 'Marceline Avila';
+            document.getElementById('emailInput').value = 'marceline@gmail.com';
+            document.getElementById('searchInput').value = 'Insurance';
+
+            updateBannerPreviews();
+        };
+    </script>
+
+</body>
+</html>
