@@ -8,17 +8,72 @@ body {
 input:focus {
     box-shadow: none !important;
 }
+:root {
+    --primary: #4f46e5;
+    --secondary: #f97316;
+    --background-light: #f3f4f6;
+    --card-bg: #ffffff;
+}
+
+/* Header & Footer with Custom button Styling */
+.btn-primary-custom {
+    background-color: var(--primary);
+    border-color: var(--primary);
+    color: white;
+}
+.btn-primary-custom:hover {
+    background-color: #4338ca;
+    border-color: #4338ca;
+}
+.brand-logo {
+    font-weight: 700;
+    font-size: 1.75rem;
+    color: var(--primary);
+}
+.brand-logo span {
+    color: var(--secondary);
+}
+.navbar-nav .nav-item {
+    margin: 0px 8px;
+}
+.navbar-nav .nav-item:hover a.nav-link, .navbar-nav .nav-item a.nav-link.active, .footer-custom a:hover, .footer-custom a.active {
+    color: var(--primary) !important;
+}
+.navbar-custom {
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+.footer-custom {
+    background-color: #1f2937;
+    color: white;
+    margin-top: auto;
+}
 
 /* Index page Beautification */
 .bg-image {
     background-color: #0d1117;
-    background-image: url(../images/stunning-red-and-blue-smoke.jpg);
-    background-size: cover;
-    background-position: center;
     padding: 40px;
     margin: 25px;
     border-radius: 15px;
     box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5);
+}
+.bg-image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    background-image: url(../images/stunning-red-and-blue-smoke.jpg);
+    background-size: cover;
+    background-position: center;
+    z-index: 0;
+    opacity: 0.6;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+.bg-image > * {
+    position: sticky;
+    z-index: 1  ;
 }
 .form-control-custom, .form-select-custom {
     background-color: rgba(255, 255, 255, 0.9);
@@ -59,13 +114,13 @@ input:focus {
     margin-bottom: 4px;
 }
 .banner-name {
-    font-size: 34px;
+    font-size: 200%;
     font-weight: 700;
     line-height: 1.1;
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.8);
 }
 .banner-email {
-    font-size: 16px;
+    font-size: 100%;
     color: #ccc;
     text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.8);
 }
