@@ -3,65 +3,86 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dynamic Banner Gallery</title>
+    <title>Social Baners</title>
     <!-- Bootstrap CSS CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" xintegrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css">
     <!-- Custom Style Sheet -->
     <link rel="stylesheet" href="./css/styles.css">
 </head>
 <body class="bg-light">
 
-    <section class="bg-image mb-5">
+    <!-- Header / Navigation -->
+    <header class="navbar-custom navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand brand-logo" href="#">
+                Social<span>Baners</span>
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto align-items-center">
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="about-us.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="privacy-policy.html">Privacy Policy</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="terms-and-condition.html">Terms & Conditions</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="disclaimer.html">Disclaimer</a>
+                    </li>
+                    <!-- <li class="nav-item ms-3">
+                        <a class="btn btn-primary-custom px-4 py-2 rounded-pill shadow-sm" href="#">
+                            Get Started Free
+                        </a>
+                    </li> -->
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <section class="bg-image mb-5 position-relative overflow-hidden">
         <div class="container text-center text-white">
             <h1 class="display-5 fw-bold mb-3">Find images and Make your Banner</h1>
-            <p class="lead mb-3">
-                Please enter your name and job title to customize your banner, and then you can proceed to download it.
-            </p>
-            <nav class="mb-5 d-flex flex-wrap justify-content-center">
-                <a href="about-us.html" class="nav-link-custom text-decoration-none">About us</a> |
-                <a href="privacy-policy.html" class="nav-link-custom text-decoration-none">Privacy Policy</a> |
-                <a href="terms-and-condition.html" class="nav-link-custom text-decoration-none">Term & Condition</a> |
-                <a href="disclaimer.html" class="nav-link-custom text-decoration-none">Disclaimer</a>
-            </nav>
-
-            <!-- Input Fields -->
-            <div class="row g-3 mx-auto" style="max-width: 1000px;">
-                <!-- Search and Category -->
-                <div class="col-lg-9 col-md-12 col-sm-12 col-12">
-                    <div class="input-group">
-                        <input type="text" id="searchInput" class="form-control form-control-custom" placeholder="Search here" value="Marceline Avila" oninput="updateBannerPreviews()">
-                        <span class="input-group-text input-group-text-right bg-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search text-secondary" viewBox="0 0 16 16">
-                                <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
-                            </svg>
-                        </span>
+            <p class="lead mb-5"> Please enter your name and job title to customize your banner, and then you can proceed to download it. </p>
+            <div class="container">
+                <!-- Input Fields -->
+                <div class="row g-3 mx-auto">
+                    <!-- Search and Category -->
+                    <div class="col-lg-9 col-md-12 col-sm-12 col-12">
+                        <div class="input-group">
+                            <input type="text" id="searchInput" class="form-control form-control-custom" placeholder="Search here ( Professional Banners )" value="Marceline Avila" oninput="updateBannerPreviews()">
+                            <span class="input-group-text input-group-text-right bg-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search text-secondary" viewBox="0 0 16 16">
+                                    <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z"/>
+                                </svg>
+                            </span>
+                        </div>
                     </div>
-                </div>
-                <div class="col-lg-3 col-md-6 col-sm-12 col-12">
-                    <select id="selectCategory" class="form-select form-select-custom">
-                        <option selected>Select Category</option>
-                        <option value="1">Technology</option>
-                        <option value="2">Finance</option>
-                        <option value="3">Marketing</option>
-                    </select>
-                </div>
-
-                <!-- Fullname, Email, Designation -->
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <input type="text" id="fullNameInput" class="form-control form-control-custom" placeholder="Fullname" value="Marceline Avila" oninput="updateBannerPreviews()">
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <div class="input-group">
+                    <div class="col-lg-3 col-md-6 col-sm-12 col-12">
+                        <select id="selectCategory" class="form-select form-select-custom">
+                            <option selected>Select Category</option>
+                            <option value="1">Technology</option>
+                            <option value="2">Finance</option>
+                            <option value="3">Marketing</option>
+                        </select>
+                    </div>
+    
+                    <!-- Fullname, Email, Designation -->
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                        <input type="text" id="fullNameInput" class="form-control form-control-custom" placeholder="Full Name" value="Marceline Avila" oninput="updateBannerPreviews()">
+                    </div>
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
                         <input type="email" id="emailInput" class="form-control form-control-custom" placeholder="Email" value="marceline@gmail.com" oninput="updateBannerPreviews()">
-                        <span class="input-group-text input-group-text-right bg-white">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-envelope text-secondary" viewBox="0 0 16 16">
-                                <path d="M0 4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V4Zm2-1a1 1 0 0 0-1 1v.217l7 4.2 7-4.2V4a1 1 0 0 0-1-1H2Zm13 2.383-4.708 2.825L15 10.375v-6.992Zm-.485 5.5l-4.708-2.825L1 9.383V4.603l-.01.005L15 4.603v6.777Zm-14.515 0V7.479l7 4.2 7-4.2v4.734a1 1 0 0 1-1 1H2a1 1 0 0 1-1-1Z"/>
-                            </svg>
-                        </span>
                     </div>
-                </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 col-12">
-                    <input type="text" id="designationInput" class="form-control form-control-custom" placeholder="Designation">
+                    <div class="col-lg-4 col-md-6 col-sm-12 col-12">
+                        <input type="text" id="designationInput" class="form-control form-control-custom" placeholder="Designation">
+                    </div>
                 </div>
             </div>
         </div>
@@ -74,34 +95,51 @@
         </div>
     </div>
 
+    <!-- Footer -->
+    <footer class="footer-custom py-5">
+        <div class="container">
+            <div class="d-flex flex-column flex-md-row justify-content-between align-items-center gap-3">
+                <p class="text-light mb-0">&copy; 2025 SocialBaners. All rights reserved.</p>
+                <div class="d-flex flex-wrap gap-4">
+                    <a href="privacy-policy.html" class="text-light text-decoration-none">Privacy Policy</a>
+                    <a href="terms-and-condition.html" class="text-light text-decoration-none">Term & Condition</a>
+                    <a href="about-us.html" class="text-light text-decoration-none">About us</a>
+                    <a href="disclaimer.html" class="text-light text-decoration-none">Disclaimer</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
     <!-- Bootstrap JS Bundle -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" xintegrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
 
     <script>
+        
         const bannerImages = [
-            'https://placehold.co/1500x500/0b3d91/ffffff?',
-            'https://placehold.co/1500x500/8d2e2e/ffffff?',
-            'https://placehold.co/1500x500/222222/ffffff?',
-            'https://placehold.co/1500x500/3d5c5c/ffffff?',
-            'https://placehold.co/1500x500/4a7a51/ffffff?',
-            'https://placehold.co/1500x500/7a5223/ffffff?',
-            'https://placehold.co/1500x500/0d47a1/ffffff?',
-            'https://placehold.co/1500x500/5b8f8f/ffffff?',
-            'https://placehold.co/1500x500/333333/ffffff?',
-            'https://placehold.co/1500x500/795548/ffffff?',
-            'https://placehold.co/1500x500/9e9d24/ffffff?',
-            'https://placehold.co/1500x500/444444/ffffff?',
-            'https://placehold.co/1500x500/555555/ffffff?',
-            'https://placehold.co/1500x500/ffd700/000000?',
+            'https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&w=1500&h=500&q=80', // Office
+            'https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1500&h=500&q=80', // Building
+            'https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=1500&h=500&q=80', // Teamwork
+            'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?auto=format&fit=crop&w=1500&h=500&q=80', // Meeting
+            'https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&w=1500&h=500&q=80', // Finance Graph
+            'https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?auto=format&fit=crop&w=1500&h=500&q=80', // Working on Tablet
+            'https://images.unsplash.com/photo-1522202176988-66273c2fd55f?auto=format&fit=crop&w=1500&h=500&q=80', // Brainstorming
+            'https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1500&h=500&q=80', // Desk Work
+            'https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=1500&h=500&q=80', // Tech/World
+            'https://images.unsplash.com/photo-1517048676732-d65bc937f952?auto=format&fit=crop&w=1500&h=500&q=80', // Collaboration/Teamwork
+            'https://images.unsplash.com/photo-1506784983877-45594efa4cbe?auto=format&fit=crop&w=1500&h=500&q=80', // Creative/Nature Focus
+            'https://images.unsplash.com/photo-1483058712412-4245e9b90334?auto=format&fit=crop&w=1500&h=500&q=80', // Laptop Close-up
+            'https://images.unsplash.com/photo-1542744173-8e7e53415bb0?auto=format&fit=crop&w=1500&h=500&q=80', // Handshake
+            
+            'https://images.unsplash.com/photo-1506869640319-fe1a24fd76dc?auto=format&fit=crop&w=1500&h=500&q=80', // Network/Abstract lines
         ];
 
         /* -- Creates the HTML structure for a single banner card. -- */
-        function createBannerCard(imageUrl, name, email) {
+        function createBannerCard(imageUrl, name, secondaryText) {
             return `
                 <div class="col-12 col-md-6">
                     <div class="banner-card" style="background-image: url('${imageUrl}');">
-                        <!-- Download Icon (Using a Bootstrap Icon SVG for simplicity) -->
-                        <div class="download-icon">
+                        <!-- Download Icon with onclick handler -->
+                        <div class="download-icon" onclick="downloadBanner('${imageUrl}')" title="Download this banner">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="bi bi-download" viewBox="0 0 16 16">
                                 <path d="M.5 9.9a.5.5 0 0 1 .5.5v2.5a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-2.5a.5.5 0 0 1 1 0v2.5a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2v-2.5a.5.5 0 0 1 .5-.5z"/>
                                 <path d="M7.646 11.854a.5.5 0 0 0 .708 0l3-3a.5.5 0 0 0-.708-.708L8.5 10.293V3.5a.5.5 0 0 0-1 0v6.793L5.354 8.146a.5.5 0 1 0-.708.708l3 3z"/>
@@ -109,22 +147,96 @@
                         </div>
                         <div class="banner-overlay">
                             <p class="banner-name">${name}</p>
-                            <p class="banner-email">${email}</p>
+                            <!-- Secondary text is either Designation or Email -->
+                            <p class="banner-email">${secondaryText}</p>
                         </div>
                     </div>
                 </div>
             `;
         }
 
-        /* -- Updates all banner previews in the gallery dynamically based on input values. -- */
+        /* -- Generates and Downloads the Image using Canvas -- */
+        function downloadBanner(imgUrl) {
+            // Get current values directly from inputs
+            const fullName = document.getElementById('fullNameInput').value || 'Fullname';
+            const email = document.getElementById('emailInput').value || 'email@example.com';
+            const designation = document.getElementById('designationInput').value.trim();
+            
+            // Logic: Use Designation if available, otherwise Email
+            const secondaryText = designation || email;
+
+            // Create an invisible canvas
+            const canvas = document.createElement('canvas');
+            const ctx = canvas.getContext('2d');
+            const img = new Image();
+            
+            // Crucial for downloading images from external sites
+            img.crossOrigin = "Anonymous";
+            img.src = imgUrl;
+
+            img.onload = () => {
+                // Set canvas size to match the high-res image
+                canvas.width = img.width;
+                canvas.height = img.height;
+
+                // 1. Draw the Background Image
+                ctx.drawImage(img, 0, 0);
+
+                // 2. Draw the Gradient Shadow at the bottom
+                const gradient = ctx.createLinearGradient(0, canvas.height - 250, 0, canvas.height);
+                gradient.addColorStop(0, "rgba(0, 0, 0, 0)");
+                gradient.addColorStop(1, "rgba(0, 0, 0, 0.9)");
+                ctx.fillStyle = gradient;
+                ctx.fillRect(0, canvas.height - 250, canvas.width, 250);
+
+                // 3. Configure Text Styles (Right Aligned)
+                ctx.textAlign = 'right';
+                ctx.fillStyle = 'white';
+                
+                // Shadow for better readability
+                ctx.shadowColor = "rgba(0, 0, 0, 0.7)";
+                ctx.shadowBlur = 4;
+                ctx.shadowOffsetX = 2;
+                ctx.shadowOffsetY = 2;
+
+                // 4. Draw Name (Bold, Large) - Scaled to image width
+                ctx.font = 'bold 60px "Inter", sans-serif'; 
+                // x position is width - padding, y position is calculated from bottom
+                ctx.fillText(fullName, canvas.width - 50, canvas.height - 90);
+
+                // 5. Draw Secondary Text (Normal, Smaller)
+                ctx.font = 'normal 35px "Inter", sans-serif';
+                ctx.fillText(secondaryText, canvas.width - 50, canvas.height - 40);
+
+                // 6. Trigger Download
+                const link = document.createElement('a');
+                link.download = `SocialBanner_${fullName.replace(/\s+/g, '_')}.png`;
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            };
+
+            img.onerror = () => {
+                alert("Sorry, could not download this specific image. It might be blocked by browser security (CORS).");
+            };
+        }
+
+        /* -- Updates previews in the grid (UI only) -- */
         function updateBannerPreviews() {
             const fullName = document.getElementById('fullNameInput').value || 'Fullname Placeholder';
             const email = document.getElementById('emailInput').value || 'email@example.com';
+            
+            // 1. GET THE DESIGNATION VALUE
+            const designation = document.getElementById('designationInput').value.trim(); 
             const gallery = document.getElementById('bannerGallery');
+
+            // 2. DETERMINE THE SECONDARY TEXT (Designation IF it exists/is not empty, otherwise Email)
+            // This is the core logic for the requested feature.
+            const secondaryText = designation || email; 
 
             let htmlContent = '';
             bannerImages.forEach(url => {
-                htmlContent += createBannerCard(url, fullName, email);
+                // 3. USE THE DETERMINED secondaryText IN THE CARD
+                htmlContent += createBannerCard(url, fullName, secondaryText);
             });
 
             // -- Set the new content, refreshing all previews
@@ -133,10 +245,11 @@
 
         // -- Initialize the gallery when the page loads
         window.onload = function() {
-            // -- Set initial dummy values for a clean start that matches the image
-            document.getElementById('fullNameInput').value = 'Marceline Avila';
-            document.getElementById('emailInput').value = 'marceline@gmail.com';
-            document.getElementById('searchInput').value = 'Insurance';
+            // -- Set initial dummy values for a clean start 
+            document.getElementById('fullNameInput').value = 'Christopher Montgomery';
+            document.getElementById('emailInput').value = 'c.montgomery@example.com';
+            document.getElementById('designationInput').value = ''; 
+            document.getElementById('searchInput').value = 'Professional Banners'; 
 
             updateBannerPreviews();
         };
